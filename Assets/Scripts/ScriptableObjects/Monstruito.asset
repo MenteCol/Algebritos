@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c124e32842774d419c0f9c8e98653e8, type: 3}
+  m_Name: Monstruito
+  m_EditorClassIdentifier: 
+  personajeJugable: {fileID: 6183008414128187000, guid: b152a7781a5a12040ad316ae6d2c88ca, type: 3}
+  imagen: {fileID: 8695918866655292738, guid: dfe8fcb43e9ad9942908a713ffe8ad83, type: 3}
+  nombre: Blumio
+  descripcion: "Blumio es un monstruito azul brillante con unas gafas enormes y redondas
+    que casi se le escurren por la nariz. Es t\xEDmido al principio, pero detr\xE1s
+    de su sonrisa nerviosa se esconde una mente brillante. Ama resolver acertijos,
+    leer libros raros y construir cosas extra\xF1as con chatarra. Si logras ganarte
+    su confianza, tendr\xE1s al mejor compa\xF1ero para aventuras\u2026 y para los
+    ex\xE1menes sorpresa."
