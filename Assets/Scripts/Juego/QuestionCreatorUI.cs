@@ -20,30 +20,73 @@ public class QuestionCreatorUI : MonoBehaviour
         correctAnswer = index;
     }
 
+    //public void SaveQuestion()
+    //{
+    //    if(!IsFormValid())
+    //    {
+    //        Debug.LogError("Formulario inválido. Asegúrate de que todos los campos estén llenos y que una opción sea correcta.");
+    //        return;
+    //    }
+
+    //    RunTimeQuestion q = new();
+    //    {
+    //        q.questionText = questionInput.text;
+    //        q.correctAnswerIndex = correctAnswer;
+    //        q.options = new string[4];
+    //    };
+
+    //    for (int i = 0; i < 4; i++)
+    //    {
+    //        q.options[i] = optionInputs[i].text;
+    //    }
+
+    //    questionList.Add(q);
+    //    Debug.Log("Pregunta guardada: " + questionInput.text);
+    //    ClearInputs();
+    //}
+
     public void SaveQuestion()
     {
-        if(!IsFormValid())
+        if (!IsFormValid())
         {
-            Debug.LogError("Formulario inválido. Asegúrate de que todos los campos estén llenos y que una opción sea correcta.");
+            Debug.LogError("Formulario inválido.");
             return;
         }
-
+                
         RunTimeQuestion q = new();
         {
             q.questionText = questionInput.text;
             q.correctAnswerIndex = correctAnswer;
             q.options = new string[4];
-        };
+        }
 
         for (int i = 0; i < 4; i++)
         {
             q.options[i] = optionInputs[i].text;
         }
-
+                
+        string filePath = Application.persistentDataPath + "/questions.json";
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            RunTimeQuestionList existingData = JsonUtility.FromJson<RunTimeQuestionList>(json);
+            questionList = existingData.questions;
+        }
+        else
+        {
+            questionList = new List<RunTimeQuestion>();
+        }
+                
         questionList.Add(q);
-        Debug.Log("Pregunta guardada: " + questionInput.text);
+
+        RunTimeQuestionList data = new() { questions = questionList };
+        string jsonFinal = JsonUtility.ToJson(data, true);
+        File.WriteAllText(filePath, jsonFinal);
+
+        Debug.Log("Pregunta guardada y añadida al archivo.");
         ClearInputs();
     }
+
 
     public void SaveToFile()
     {
