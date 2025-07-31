@@ -1,3 +1,6 @@
+// Cambios 31/07: Añadido un método para guardar preguntas en un archivo JSON y validar el formulario antes de guardar. Metodo SaveQuestion() ahora guarda las preguntas en un
+// archivo JSON en lugar de una lista en memoria. También se ha añadido un método para limpiar los campos del formulario después de guardar una pregunta. 
+
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
