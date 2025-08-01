@@ -1,61 +1,69 @@
-// Cambios 31/07: Añadido un método para guardar preguntas en un archivo JSON y validar el formulario antes de guardar. Metodo SaveQuestion() ahora guarda las preguntas en un
-// archivo JSON en lugar de una lista en memoria. También se ha añadido un método para limpiar los campos del formulario después de guardar una pregunta. 
-
-using UnityEngine;
-using TMPro;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class QuestionCreatorUI : MonoBehaviour
 {
-    //public RunTimeQuestion runTimeQuestion;
-
     public TMP_InputField questionInput;
     public TMP_InputField[] optionInputs;
     public int correctAnswer;
     public Toggle[] correctOptionToggles;
+    public List<Toggle> correctOptionTogglesList;
+
+    public TMP_Text textoError;
+    public GameObject panelError;
+
+    public Button gestionPreguntas;
 
     private List<RunTimeQuestion> questionList = new();
+
+    void Start()
+    {
+        panelError.SetActive(false);
+
+        ActualizarBotonGestion();
+
+        #region Evitar mas de un Toggle On.
+
+        for (int i = 0; i < correctOptionToggles.Length; i++)
+        {
+            int index = i;
+            correctOptionToggles[i].onValueChanged.AddListener(isOn =>
+            {
+                if (isOn)
+                {
+                    for (int j = 0; j < correctOptionToggles.Length; j++)
+                    {
+                        if (j != index)
+                            correctOptionToggles[j].isOn = false;
+                    }
+                }
+            });
+        } 
+
+        #endregion
+    }
 
     public void SetCorrectIndex(int index)
     {
         correctAnswer = index;
     }
 
-    //public void SaveQuestion()
-    //{
-    //    if(!IsFormValid())
-    //    {
-    //        Debug.LogError("Formulario inválido. Asegúrate de que todos los campos estén llenos y que una opción sea correcta.");
-    //        return;
-    //    }
-
-    //    RunTimeQuestion q = new();
-    //    {
-    //        q.questionText = questionInput.text;
-    //        q.correctAnswerIndex = correctAnswer;
-    //        q.options = new string[4];
-    //    };
-
-    //    for (int i = 0; i < 4; i++)
-    //    {
-    //        q.options[i] = optionInputs[i].text;
-    //    }
-
-    //    questionList.Add(q);
-    //    Debug.Log("Pregunta guardada: " + questionInput.text);
-    //    ClearInputs();
-    //}
-
     public void SaveQuestion()
     {
-        if (!IsFormValid())
+        if (!IsFormValid(out string errorMsg))
         {
-            Debug.LogError("Formulario inválido.");
+            textoError.text = errorMsg;
+            panelError.SetActive(true);
+            Debug.LogError("Formulario inválido: " + errorMsg);
             return;
         }
-                
+
         RunTimeQuestion q = new();
         {
             q.questionText = questionInput.text;
@@ -67,7 +75,7 @@ public class QuestionCreatorUI : MonoBehaviour
         {
             q.options[i] = optionInputs[i].text;
         }
-                
+
         string filePath = Application.persistentDataPath + "/questions.json";
         if (File.Exists(filePath))
         {
@@ -79,7 +87,7 @@ public class QuestionCreatorUI : MonoBehaviour
         {
             questionList = new List<RunTimeQuestion>();
         }
-                
+
         questionList.Add(q);
 
         RunTimeQuestionList data = new() { questions = questionList };
@@ -88,15 +96,7 @@ public class QuestionCreatorUI : MonoBehaviour
 
         Debug.Log("Pregunta guardada y añadida al archivo.");
         ClearInputs();
-    }
-
-
-    public void SaveToFile()
-    {
-        RunTimeQuestionList data = new() { questions = questionList };
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(Application.persistentDataPath + "/questions.json", json);
-        Debug.Log("Guardado en: " + Application.persistentDataPath);
+        ActualizarBotonGestion();
     }
 
     void ClearInputs()
@@ -113,23 +113,25 @@ public class QuestionCreatorUI : MonoBehaviour
         }
     }
 
-    bool IsFormValid()
+    bool IsFormValid(out string errorMessage)
     {
-        if(string.IsNullOrWhiteSpace(questionInput.text))
+        if (string.IsNullOrWhiteSpace(questionInput.text))
         {
+            errorMessage = "La pregunta está vacía.";
             return false;
         }
 
-        foreach (var input in optionInputs)
+        for (int i = 0; i < optionInputs.Length; i++)
         {
-            if(string.IsNullOrWhiteSpace(input.text))
+            if (string.IsNullOrWhiteSpace(optionInputs[i].text))
             {
+                errorMessage = $"La opción {i + 1} está vacía.";
                 return false;
             }
         }
 
         int togglesOn = 0;
-        for(int i = 0; i < correctOptionToggles.Length; i++)
+        for (int i = 0; i < correctOptionToggles.Length; i++)
         {
             if (correctOptionToggles[i].isOn)
             {
@@ -138,6 +140,31 @@ public class QuestionCreatorUI : MonoBehaviour
             }
         }
 
-        return togglesOn == 1;
+        if (togglesOn != 1)
+        {
+            errorMessage = "Debe marcar una opción como correcta.";
+            return false;
+        }
+
+        errorMessage = "";
+        return true;
     }
+
+    public void ActualizarBotonGestion()
+    {
+        string filePath = Application.persistentDataPath + "/questions.json";
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            RunTimeQuestionList existingData = JsonUtility.FromJson<RunTimeQuestionList>(json);
+            if (existingData.questions != null && existingData.questions.Count > 0)
+            {
+                gestionPreguntas.interactable = true;
+                return;
+            }
+        }
+
+        gestionPreguntas.interactable = false;
+    }
+
 }
