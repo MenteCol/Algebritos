@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class Option : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public bool isCorrect;
+    [HideInInspector] public bool isCorrect;
     private CanvasGroup canvasGroup;
     private Vector3 startPosition;
     private Transform startParent;
