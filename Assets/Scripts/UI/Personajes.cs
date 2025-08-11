@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Personajes : ScriptableObject
 {
-    public GameObject personajeJugable;
+    public Sprite personajeJugable;
     public Sprite imagen;
     public string nombre;
     public string descripcion;

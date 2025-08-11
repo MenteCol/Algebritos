@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c124e32842774d419c0f9c8e98653e8, type: 3}
   m_Name: Monstruita
   m_EditorClassIdentifier: 
-  personajeJugable: {fileID: 2649397327069992055, guid: e285de2902da9a24cb94f331413feed0, type: 3}
+  personajeJugable: {fileID: 6231024503581106606, guid: bfcc9d01f0c0d834694461f032f8780f, type: 3}
   imagen: {fileID: 5956961294597558830, guid: 325e8fb49bf59ec41bd22a2dd6f67823, type: 3}
   nombre: Lumiara
   descripcion: "Lumiara es una monstruita amarilla chispeante, con energ\xEDa de
