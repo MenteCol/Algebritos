@@ -4,25 +4,31 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
 
+[System.Serializable]
+public class FragmentoDialogo
+{
+    public string nombre;
+    [TextArea(3, 5)]
+    public string texto;
+    public Sprite retrato;
+}
+
 public class DialogoTypingManager : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("UI Elementos")]
     [SerializeField] private TMP_Text nombrePersonajeTexto;
     [SerializeField] private TMP_Text dialogoTexto;
     [SerializeField] private Image retratoPersonaje;
-    [SerializeField] private GameObject panelJuego;
+    public GameObject panelJuego;
 
-    [Header("Configuración")]
-    [SerializeField] private Vector2 maxRetratoSize = new Vector2(200, 200);
+    [Header("Configuración de Diálogo")]
+    [SerializeField] private FragmentoDialogo[] fragmentosDialogo;
     [SerializeField] private float velocidadEscritura = 0.05f;
     [SerializeField] private AudioSource sonidoEscritura;
 
-    [Header("Fragmentos de diálogo")]
-    [TextArea(3, 5)]
-    public string[] fragmentosDialogo;
-
     private int indiceActual = 0;
     private bool escribiendo = false;
+    private string textoCompleto;
 
     private void Start()
     {
@@ -38,61 +44,52 @@ public class DialogoTypingManager : MonoBehaviour
             {
                 // Mostrar texto completo al instante
                 StopAllCoroutines();
-                dialogoTexto.text = fragmentosDialogo[indiceActual];
+                dialogoTexto.text = textoCompleto;
                 escribiendo = false;
             }
             else
             {
-                // Pasar al siguiente fragmento
-                indiceActual++;
-                if (indiceActual < fragmentosDialogo.Length)
-                {
-                    MostrarDialogo();
-                }
-                else
-                {
-                    // Fin del diálogo
-                    Debug.Log("Diálogo terminado");
-                    panelJuego.SetActive(true);
-                    this.gameObject.SetActive(false);
-                }
+                SiguienteDialogo();   
             }
         }
     }
 
     private void MostrarDialogo()
     {
-        var personaje = GameManager.Instance.personajes[PlayerPrefs.GetInt("JugadorIndex", 0)];
+        if(indiceActual >= fragmentosDialogo.Length)
+        {
+            panelJuego.SetActive(true);
+            gameObject.SetActive(false);
+            return; // No hay más diálogos
+        }
 
-        nombrePersonajeTexto.text = personaje.nombre;
-        retratoPersonaje.sprite = personaje.personajeJugable;
+        var fragmento = fragmentosDialogo[indiceActual];
 
-        AjustarTamañoRetrato(personaje.personajeJugable);
+        if(string.IsNullOrEmpty(fragmento.nombre))
+        {
+            var personaje = GameManager.Instance.personajes[PlayerPrefs.GetInt("JugadorIndex", 0)];
+            nombrePersonajeTexto.text = personaje.nombre;
+            retratoPersonaje.sprite = personaje.personajeJugable;
+            AjustarTamañoRetrato(personaje.personajeJugable);
+        }
+        else
+        {
+            nombrePersonajeTexto.text = fragmento.nombre;
+            retratoPersonaje.sprite = fragmento.retrato;
+            AjustarTamañoRetrato(fragmento.retrato);
+        }
 
         StopAllCoroutines();
-        StartCoroutine(EfectoEscritura(fragmentosDialogo[indiceActual]));
-    }
-
-    private void AjustarTamañoRetrato(Sprite sprite)
-    {
-        if (sprite == null) return;
-
-        retratoPersonaje.SetNativeSize();
-        RectTransform rt = retratoPersonaje.GetComponent<RectTransform>();
-
-        float ancho = rt.sizeDelta.x;
-        float alto = rt.sizeDelta.y;
-
-        float escala = Mathf.Min(maxRetratoSize.x / ancho, maxRetratoSize.y / alto, 1f);
-        rt.sizeDelta = new Vector2(ancho * escala, alto * escala);
+        StartCoroutine(EfectoEscritura(fragmento.texto));
     }
 
     private IEnumerator EfectoEscritura(string texto)
     {
         escribiendo = true;
         dialogoTexto.text = "";
+        textoCompleto = texto;
 
-        foreach (char letra in texto.ToCharArray())
+        foreach (char letra in textoCompleto)
         {
             dialogoTexto.text += letra;
             if (sonidoEscritura != null) sonidoEscritura.Play();
@@ -100,5 +97,21 @@ public class DialogoTypingManager : MonoBehaviour
         }
 
         escribiendo = false;
+    }
+
+    private void SiguienteDialogo()
+    {
+        indiceActual++;
+        MostrarDialogo();
+    }
+
+    private void AjustarTamañoRetrato(Sprite sprite)
+    {
+        if (sprite == null) return;
+        retratoPersonaje.preserveAspect = true;
+        retratoPersonaje.SetNativeSize();
+
+        float escala = 0.5f;
+        retratoPersonaje.rectTransform.sizeDelta *= escala;
     }
 }

@@ -1458,13 +1458,9 @@ MonoBehaviour:
   dialogoTexto: {fileID: 1058073156}
   retratoPersonaje: {fileID: 348264586}
   panelJuego: {fileID: 191814304}
-  maxRetratoSize: {x: 450, y: 450}
+  fragmentosDialogo: []
   velocidadEscritura: 0.05
   sonidoEscritura: {fileID: 1018073390}
-  fragmentosDialogo:
-  - Hola, chikitita hermosa de mi corazon
-  - "\xBFComo estas, ademas de preciosa?"
-  - Te amo muchisisimo
 --- !u!1 &1058073154
 GameObject:
   m_ObjectHideFlags: 0
