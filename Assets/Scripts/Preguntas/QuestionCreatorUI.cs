@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class QuestionCreatorUI : MonoBehaviour
@@ -13,11 +10,10 @@ public class QuestionCreatorUI : MonoBehaviour
     public TMP_InputField[] optionInputs;
     public int correctAnswer;
     public Toggle[] correctOptionToggles;
-    public List<Toggle> correctOptionTogglesList;
+    public TMP_Dropdown levelDropdown;
 
     public TMP_Text textoError;
     public GameObject panelError;
-
     public Button gestionPreguntas;
 
     private List<RunTimeQuestion> questionList = new();
@@ -25,11 +21,9 @@ public class QuestionCreatorUI : MonoBehaviour
     void Start()
     {
         panelError.SetActive(false);
-
         ActualizarBotonGestion();
 
         #region Evitar mas de un Toggle On.
-
         for (int i = 0; i < correctOptionToggles.Length; i++)
         {
             int index = i;
@@ -44,9 +38,16 @@ public class QuestionCreatorUI : MonoBehaviour
                     }
                 }
             });
-        } 
-
+        }
         #endregion
+
+        // Opciones del dropdown de niveles
+        if(levelDropdown != null)
+        {
+            levelDropdown.ClearOptions();
+            levelDropdown.AddOptions(new List<string> { "Nivel 01", "Nivel 02", "Nivel 03" });
+            levelDropdown.value = 0;
+        }
     }
 
     public void SetCorrectIndex(int index)
@@ -60,7 +61,7 @@ public class QuestionCreatorUI : MonoBehaviour
         {
             textoError.text = errorMsg;
             panelError.SetActive(true);
-            Debug.LogError("Formulario inválido: " + errorMsg);
+            Debug.LogError("Error al guardar la pregunta: " + errorMsg);
             return;
         }
 
@@ -68,7 +69,8 @@ public class QuestionCreatorUI : MonoBehaviour
         {
             q.questionText = questionInput.text;
             q.correctAnswerIndex = correctAnswer;
-            q.options = new string[4];
+            q.options = new string[optionInputs.Length];
+            q.level = levelDropdown != null ? levelDropdown.value + 1 : 1;
         }
 
         for (int i = 0; i < 4; i++)
@@ -77,11 +79,12 @@ public class QuestionCreatorUI : MonoBehaviour
         }
 
         string filePath = Application.persistentDataPath + "/questions.json";
+
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
             RunTimeQuestionList existingData = JsonUtility.FromJson<RunTimeQuestionList>(json);
-            questionList = existingData.questions;
+            questionList = existingData.questions ?? new List<RunTimeQuestion>();
         }
         else
         {
@@ -94,7 +97,7 @@ public class QuestionCreatorUI : MonoBehaviour
         string jsonFinal = JsonUtility.ToJson(data, true);
         File.WriteAllText(filePath, jsonFinal);
 
-        Debug.Log("Pregunta guardada y añadida al archivo.");
+        Debug.Log("Pregunta guardada con nivel: " + q.level);
         ClearInputs();
         ActualizarBotonGestion();
     }
@@ -110,6 +113,11 @@ public class QuestionCreatorUI : MonoBehaviour
         foreach (var toggle in correctOptionToggles)
         {
             toggle.isOn = false;
+        }
+
+        if (levelDropdown != null)
+        {
+            levelDropdown.value = 0;
         }
     }
 
@@ -131,6 +139,7 @@ public class QuestionCreatorUI : MonoBehaviour
         }
 
         int togglesOn = 0;
+
         for (int i = 0; i < correctOptionToggles.Length; i++)
         {
             if (correctOptionToggles[i].isOn)
@@ -146,6 +155,12 @@ public class QuestionCreatorUI : MonoBehaviour
             return false;
         }
 
+        if(levelDropdown != null && levelDropdown.value < 0)
+        {
+            errorMessage = "Debe seleccionar un nivel.";
+            return false;
+        }
+
         errorMessage = "";
         return true;
     }
@@ -153,10 +168,12 @@ public class QuestionCreatorUI : MonoBehaviour
     public void ActualizarBotonGestion()
     {
         string filePath = Application.persistentDataPath + "/questions.json";
+
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
             RunTimeQuestionList existingData = JsonUtility.FromJson<RunTimeQuestionList>(json);
+
             if (existingData.questions != null && existingData.questions.Count > 0)
             {
                 gestionPreguntas.interactable = true;
