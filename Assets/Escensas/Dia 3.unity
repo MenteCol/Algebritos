@@ -185,6 +185,7 @@ MonoBehaviour:
   - {fileID: 1527559881}
   - {fileID: 1765824694}
   - {fileID: 678874774}
+  currentLevel: 3
 --- !u!114 &191814307
 MonoBehaviour:
   m_ObjectHideFlags: 0

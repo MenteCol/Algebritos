@@ -182,7 +182,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 57253032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 57253035}
+        m_TargetAssemblyTypeName: LevelProgressManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &57253032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,11 +265,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448fbab12214dfe40b46c43ba0695e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Dia 3
   levelNumber: 3
-  levelButton: {fileID: 57253031}
   scoreText: {fileID: 767180989}
   starIcon: {fileID: 804991056}
   lockIcon: {fileID: 1906014788}
+  fadeCanvasGroup: {fileID: 1974798437}
+  fadeDuration: 1
+  lockFadeDuration: 0
 --- !u!1 &131692336
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +394,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 131692338}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 131692341}
+        m_TargetAssemblyTypeName: LevelProgressManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &131692341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,11 +419,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448fbab12214dfe40b46c43ba0695e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Dia 1
   levelNumber: 1
-  levelButton: {fileID: 131692340}
   scoreText: {fileID: 777326121}
   starIcon: {fileID: 1997312043}
   lockIcon: {fileID: 1347375712}
+  fadeCanvasGroup: {fileID: 1974798437}
+  fadeDuration: 1
+  lockFadeDuration: 0
 --- !u!1 &487021678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1331,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 841175307}
+  - {fileID: 1974798436}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1713,7 +1744,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1620702411}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1620702414}
+        m_TargetAssemblyTypeName: LevelProgressManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1620702414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,11 +1769,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448fbab12214dfe40b46c43ba0695e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Dia 2
   levelNumber: 2
-  levelButton: {fileID: 1620702413}
   scoreText: {fileID: 1657235695}
   starIcon: {fileID: 487021678}
   lockIcon: {fileID: 1795721455}
+  fadeCanvasGroup: {fileID: 1974798437}
+  fadeDuration: 1
+  lockFadeDuration: 0
 --- !u!1 &1657235693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,6 +2198,94 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919228153}
+  m_CullTransparentMesh: 1
+--- !u!1 &1974798435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974798436}
+  - component: {fileID: 1974798439}
+  - component: {fileID: 1974798438}
+  - component: {fileID: 1974798437}
+  m_Layer: 5
+  m_Name: Fade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1974798436
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974798435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072524226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1974798437
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974798435}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &1974798438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974798435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1974798439
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974798435}
   m_CullTransparentMesh: 1
 --- !u!1 &1997312043
 GameObject:

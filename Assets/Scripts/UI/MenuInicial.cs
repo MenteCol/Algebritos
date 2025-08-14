@@ -12,4 +12,11 @@ public class MenuInicial : MonoBehaviour
         Application.Quit();
         Debug.Log("Juego cerrado");
     }
+
+    public void ResetAllData()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Debug.Log("Todos los datos han sido eliminados.");
+    }
 }

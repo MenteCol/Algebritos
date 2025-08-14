@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -10,15 +11,15 @@ public class QuestionManager : MonoBehaviour
     public TMP_Text[] optionTexts;
     public Button[] optionButtons;
 
+    public int currentLevel; //1, 2, 3...
+
     private List<RunTimeQuestion> questions;
     private List<RunTimeQuestion> levelQuestions;
     private int currentIndex = 0;
     private int score = 0;
-    private int currentLevel;
 
     void Start()
     {
-        currentLevel = PlayerPrefs.GetInt("Nivel Actual", 1); // Obtener el nivel actual del jugador
         LoadQuestions();
         ShowQuestion();
     }
@@ -36,42 +37,34 @@ public class QuestionManager : MonoBehaviour
         string json = File.ReadAllText(filePath);
         RunTimeQuestionList data = JsonUtility.FromJson<RunTimeQuestionList>(json);
 
-        //Cargar todas las preguntas
-        questions = data.questions ?? new List<RunTimeQuestion>();
-
         //Filtrar preguntas por nivel
-        levelQuestions = questions.FindAll(q => q.level == currentLevel);
+        questions = data.questions ?? new List<RunTimeQuestion>();
+        List<RunTimeQuestion> allLevelQuestions = questions.FindAll(q => q.level == currentLevel);
 
-        //Mezclar aleatoriamente
-        for(int i = 0; i < levelQuestions.Count; i++)
+        if (allLevelQuestions.Count < 5)
         {
-            RunTimeQuestion temp = levelQuestions[i];
-            int randomIndex = UnityEngine.Random.Range(i, levelQuestions.Count);
-            levelQuestions[i] = levelQuestions[randomIndex];
-            levelQuestions[randomIndex] = temp;
-        }
-
-        //Limitar a 5 preguntas por nivel
-        if (levelQuestions.Count > 5)
-        {
-            levelQuestions = levelQuestions.GetRange(0, 5);
-        }
-
-        if (levelQuestions.Count == 0)
-        {
-            Debug.LogError("No hay preguntas para el nivel " + currentLevel);
+            Debug.LogError("No hay suficientes preguntas para el nivel");
             return;
+        }
+
+        //Escoger 5 preguntas aleatorias
+        levelQuestions = new List<RunTimeQuestion>();
+        List<int> usedIndexes = new List<int>();
+
+        while(levelQuestions.Count < 5)
+        {
+            int rand = Random.Range(0, allLevelQuestions.Count);
+
+            if(!usedIndexes.Contains(rand))
+            {
+                usedIndexes.Add(rand);
+                levelQuestions.Add(allLevelQuestions[rand]);
+            }
         }
     }
 
     void ShowQuestion()
     {
-        if(levelQuestions.Count == 0)
-        {
-            questionText.text = "No hay preguntas disponibles para este nivel.";
-            return;
-        }
-
         if(currentIndex >= levelQuestions.Count)
         {
             EndGame();
@@ -99,10 +92,6 @@ public class QuestionManager : MonoBehaviour
             score++;
             Debug.Log("Respuesta correcta!");
         }
-        else
-        {
-            Debug.Log("Respuesta incorrecta. La respuesta correcta era: " + q.options[q.correctAnswerIndex]);
-        }
 
         currentIndex++;
         ShowQuestion();
@@ -110,21 +99,24 @@ public class QuestionManager : MonoBehaviour
 
     void EndGame()
     {
-        questionText.text = "Juego terminado. Tu puntuación: " + score + "/" + levelQuestions.Count;
+        questionText.text = "Juego terminado. Tu puntuación es: " + score + "/5";
 
-        //Guardar Puntaje
-        PlayerPrefs.SetInt("Nivel " + currentLevel + "_Score", score);
-        PlayerPrefs.Save();
-
-        //Desbloquear siguiente nivel si se cumple la condición
-        if (score >= 4 && currentLevel < 3)
+        foreach(var btn in optionButtons)
         {
-            PlayerPrefs.SetInt("Nivel " + (currentLevel + 1) + "_Unlocked", 1);
-            PlayerPrefs.Save();
+            btn.gameObject.SetActive(false);
         }
 
-        //Volver al menú principal después de 3 segundos
-        Invoke("ReturnToMainMenu", 3f);
+        //Guardar puntaje
+        PlayerPrefs.SetInt("Nivel" + currentLevel + "_Score", score);
+
+        //Desbloquear siguiente nivel
+        if(score >= 4 && currentLevel < 3)
+        {
+            PlayerPrefs.SetInt("Nivel" + (currentLevel + 1) + "_Unlocked", 1);
+        }
+
+        PlayerPrefs.Save();
+        Invoke(nameof(ReturnToMainMenu), 3f); //Volver al menú principal después de 3 segundos
     }
 
     void ReturnToMainMenu()
