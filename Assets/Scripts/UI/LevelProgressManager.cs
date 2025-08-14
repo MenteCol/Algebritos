@@ -1,26 +1,48 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelProgressManager : MonoBehaviour
 {
-    public Button[] levelButtons;
+    public int levelNumber;
+    public Button levelButton;
+    public TMP_Text scoreText;
+    public GameObject starIcon;
+    public GameObject lockIcon;
 
-    private void Start()
+    void Start()
     {
-        //Cargar progreso del jugador
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        //Nivel 1 siempre desbloqueado
+        bool unlocked = levelNumber == 1 || PlayerPrefs.GetInt("Nivel " + levelNumber + " Desbloqueado", 0) == 1;
+        levelButton.interactable = unlocked;
 
-        //Bloquear/desbloquear botones
-        for(int i = 0; i < levelButtons.Length; i++)
+        //Mostrar/ocultar candado
+        if(lockIcon != null)
         {
-            levelButtons[i].interactable = (i + i) <= unlockedLevel;
+            lockIcon.SetActive(!unlocked);
         }
+
+        //Mostrar puntuación si existe
+        int score = PlayerPrefs.GetInt("Nivel " + levelNumber + "_Puntuación", -1);
+
+        if(score >= 0 && unlocked)
+        {
+            scoreText.text = "Puntuación: " + score + "/5";
+            starIcon.SetActive(score == 5);
+        }
+        else
+        {
+            scoreText.text = "--/5";
+            starIcon.SetActive(false);
+        }
+
+        //Evento al presionar el botón del nivel
+        levelButton.onClick.AddListener(() => LoadLevel());
     }
 
-    public void LoadLevel(int levelIndex)
+    void LoadLevel()
     {
-        PlayerPrefs.SetInt("CurrentLevel", levelIndex); // Guardar el nivel seleccionado
-        SceneManager.LoadScene("Dia " + levelIndex); // Cargar la escena del nivel seleccionado
+        SceneManager.LoadScene("Dia " + levelNumber);
     }
 }

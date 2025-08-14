@@ -112,21 +112,16 @@ public class QuestionManager : MonoBehaviour
     {
         questionText.text = "Juego terminado. Tu puntuación: " + score + "/" + levelQuestions.Count;
 
-        foreach (var button in optionButtons)
-        {
-            button.gameObject.SetActive(false);
-        }
-
-        int currentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
-
-        if(score > 0 && currentLevel >= unlockedLevel && currentLevel < 3)
-        {
-            PlayerPrefs.SetInt("UnlockedLevel", currentLevel + 1);
-            Debug.Log("¡Nuevo nivel desbloqueado!");
-        }
-        
+        //Guardar Puntaje
+        PlayerPrefs.SetInt("Nivel " + currentLevel + "_Score", score);
         PlayerPrefs.Save();
+
+        //Desbloquear siguiente nivel si se cumple la condición
+        if (score >= 4 && currentLevel < 3)
+        {
+            PlayerPrefs.SetInt("Nivel " + (currentLevel + 1) + "_Unlocked", 1);
+            PlayerPrefs.Save();
+        }
 
         //Volver al menú principal después de 3 segundos
         Invoke("ReturnToMainMenu", 3f);
