@@ -26,6 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escensas/Dia 3.unity
     guid: cedd53032fd2e154bad3b484ad717a24
+  - enabled: 1
+    path: Assets/Escensas/Drag&Drop 1.unity
+    guid: 6da4f95e5608f8141b9a9f4ff9e02cc7
+  - enabled: 1
+    path: Assets/Escensas/Drag&Drop 2.unity
+    guid: 7d4691abb5f109146bb5e4027a4fef85
+  - enabled: 1
+    path: Assets/Escensas/Drag&Drop 3.unity
+    guid: de707ca6eae83a14ba7bdd8a7c8338aa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
