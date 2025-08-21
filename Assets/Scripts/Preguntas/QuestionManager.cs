@@ -83,7 +83,7 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    void OnAnswer(int index)
+    void OnAnswer(int index) //Aqui se ejecuta la pregunta, HEREEEEEEE!!!
     {
         RunTimeQuestion q = levelQuestions[currentIndex];
 
