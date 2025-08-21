@@ -4422,7 +4422,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 873491977}
-  - component: {fileID: 873491976}
+  - component: {fileID: 873491978}
+  - component: {fileID: 873491979}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -4430,103 +4431,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &873491976
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873491975}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 8845f08c7142a3e49842eab0a92047a7, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 934e24fc8e67f6e43bc1d5c12902897e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 934e24fc8e67f6e43bc1d5c12902897e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!4 &873491977
 Transform:
   m_ObjectHideFlags: 0
@@ -4542,6 +4446,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &873491978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873491975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcebb6234105bbf4580d4c1ab9593b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistas:
+  - nombre: Musica_Cancion1
+    clip: {fileID: 8300000, guid: 934e24fc8e67f6e43bc1d5c12902897e, type: 3}
+    volumen: 20
+  - nombre: SFX_Tecla
+    clip: {fileID: 8300000, guid: f4e4905469405ef438c6beea280f9e02, type: 3}
+    volumen: 80
+  - nombre: SFX_Win
+    clip: {fileID: 8300000, guid: c4d177590bfb8144bb96e91d202e987b, type: 3}
+    volumen: 80
+  - nombre: SFX_Fail
+    clip: {fileID: 8300000, guid: 406037f21f7c5434c9b2d1482d9a8124, type: 3}
+    volumen: 50
+  masterMixer: {fileID: 24300002, guid: 8845f08c7142a3e49842eab0a92047a7, type: 2}
+--- !u!114 &873491979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873491975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fc2b6fe5455fc44b166f8a5a4161a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &878154518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5880,6 +5822,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 873491979}
+        m_TargetAssemblyTypeName: GestionSonidos, Assembly-CSharp
+        m_MethodName: SonidoTecla
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SFX_Tecla
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1090423684
@@ -8141,6 +8095,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 873491979}
+        m_TargetAssemblyTypeName: GestionSonidos, Assembly-CSharp
+        m_MethodName: SonidoTecla
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SFX_Tecla
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1535303553

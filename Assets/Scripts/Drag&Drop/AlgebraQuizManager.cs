@@ -30,7 +30,7 @@ public class AlgebraQuizManager : MonoBehaviour
     void Start()
     {
         SelectRandomQuestion();
-        ShowQuestion();
+        ShowQuestion();        
     }
 
     void SelectRandomQuestion()
