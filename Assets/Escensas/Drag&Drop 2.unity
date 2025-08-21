@@ -228,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.1393, y: 4.250001}
+  m_AnchoredPosition: {x: 1.1392975, y: 4.25}
   m_SizeDelta: {x: -52.4103, y: -54.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141819128
@@ -431,6 +431,7 @@ RectTransform:
   - {fileID: 467752947}
   - {fileID: 651591438}
   - {fileID: 1593104068}
+  - {fileID: 362109976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -438,6 +439,142 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &362109975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 362109976}
+  - component: {fileID: 362109978}
+  - component: {fileID: 362109977}
+  m_Layer: 5
+  m_Name: QuestionText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &362109976
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362109975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 254368811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 378}
+  m_SizeDelta: {x: 1500, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &362109977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362109975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 64f4c5fad9ff84447907b4947685ecf7, type: 2}
+  m_sharedMaterial: {fileID: 3714612125975225012, guid: 64f4c5fad9ff84447907b4947685ecf7, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294910468
+  m_fontColor: {r: 0.015686274, g: 0.13512646, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 72
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &362109978
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362109975}
+  m_CullTransparentMesh: 1
 --- !u!1 &439282668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1250,150 @@ MonoBehaviour:
   - {fileID: 467752948}
   - {fileID: 651591439}
   feedbackText: {fileID: 1593104069}
-  allQuestions: []
+  questionText: {fileID: 362109977}
+  allQuestions:
+  - expressionParts:
+    - 8x
+    - +
+    - 12
+    - ->
+    - 4(2x+3)
+    missingIndex: 4
+    options:
+    - 8x+12
+    - (2x+3)(x+3)
+    - 4(2x+3)
+    questionText: "\xBFQu\xE9 se obtiene al factorizar?"
+  - expressionParts:
+    - "16x\xB2"
+    - +
+    - 25
+    - ->
+    - (4x-5)(4x+5)
+    missingIndex: 4
+    options:
+    - '(16x - 25) (x + 1)  '
+    - (4x - 5) (4x + 5)
+    - (4x - 5) (4x - 5)
+    questionText: "\xBFQu\xE9 resultado se obtiene al factorizar?"
+  - expressionParts:
+    - " x\xB2"
+    - +
+    - 6x
+    - +
+    - "9x\xB2"
+    - ->
+    - Trinomio cuadrado perfecto
+    missingIndex: 6
+    options:
+    - 'Diferencia de cuadrados perfectos  '
+    - Trinomio cuadrado perfecto
+    - 'Trinomio de la forma ax2n+bxn+c '
+    questionText: "\xBFPor qu\xE9 caso algebraico se puede dar soluci\xF3n a la siguiente
+      operaci\xF3n?"
+  - expressionParts:
+    - 2x
+    - +
+    - 5x
+    - +
+    - 3
+    - ->
+    - Trinomio de la forma ax2n+bxn+c
+    missingIndex: 6
+    options:
+    - 'Diferencia de cuadrados perfectos  '
+    - Trinomio cuadrado perfecto
+    - Trinomio de la forma ax2n+bxn+c
+    questionText: "\xBFPor qu\xE9 caso algebraico se puede dar soluci\xF3n a la siguiente
+      operaci\xF3n?"
+  - expressionParts:
+    - "49x\xB2"
+    - '-'
+    - 81
+    - ->
+    - 'Diferencia de cuadrados perfectos '
+    missingIndex: 4
+    options:
+    - 'Diferencia de cuadrados perfectos '
+    - Trinomio cuadrado perfecto
+    - 'Trinomio de la forma ax2n+bxn+c  '
+    questionText: "\xBFPor qu\xE9 caso algebraico se puede dar soluci\xF3n a la siguiente
+      operaci\xF3n?"
+  - expressionParts:
+    - 6x
+    - +
+    - 9y
+    - +
+    - "4x\xB2"
+    - +
+    - 6xy
+    - ->
+    - "Factor com\xFAn por agrupaci\xF3n"
+    missingIndex: 8
+    options:
+    - Diferencia de cuadrados perfectos
+    - "Factor com\xFAn por agrupaci\xF3n"
+    - Trinomio de la forma ax2n+bxn+c
+    questionText: "\xBFPor qu\xE9 caso algebraico se puede dar soluci\xF3n a la siguiente
+      operaci\xF3n?"
+  - expressionParts:
+    - "8x\xB2"
+    - +
+    - 12x
+    - +
+    - 2xy
+    - +
+    - 3y
+    - ->
+    - (4x + y) (2x + 3)
+    missingIndex: 8
+    options:
+    - (4x + y) (2x + 3)
+    - (8x + 3y) (x + 1)
+    - (2x + y) (4x - 3)
+    questionText: "\xBFQu\xE9 se obtiene al factorizar la siguiente expresi\xF3n?"
+  - expressionParts:
+    - "6a\xB2"
+    - +
+    - 9a
+    - +
+    - 4ay
+    - +
+    - 6y
+    - ->
+    - (2a + 3) (3a + 2y)
+    missingIndex: 8
+    options:
+    - (2a + 3) (3a - 2y)
+    - (6a + 6y) (a + 1)
+    - (2a + 3) (3a + 2y)
+    questionText: "\xBFQu\xE9 se obtiene al factorizar la siguiente expresi\xF3n?"
+  - expressionParts:
+    - "100x\xB2"
+    - +
+    - "49y\xB2"
+    - ->
+    - (10x - 7y) (10x + 7y)
+    missingIndex: 4
+    options:
+    - (10x - y) (10x - 49y)
+    - (10x - 7y) (10x + 7y)
+    - (10x + 7y) (10x + 7y)
+    questionText: "\xBFQu\xE9 se obtiene la factorizar la siguiente expresi\xF3n?"
+  - expressionParts:
+    - "x\xB2"
+    - '-'
+    - 10x
+    - +
+    - 25
+    - ->
+    - "(x - 5)\xB2"
+    missingIndex: 6
+    options:
+    - "(x - 5)\xB2"
+    - (x - 25) (x + 1)
+    - "(x + 5)\xB2"
+    questionText: "\xBFQu\xE9 se obtiene al factorizar la siguiente expresi\xF3n?"
   quizQuestions: []
   audioSource: {fileID: 828201616}
   correctSound: {fileID: 8300000, guid: c4d177590bfb8144bb96e91d202e987b, type: 3}
@@ -1395,8 +1675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 378}
-  m_SizeDelta: {x: 1500, y: 250}
+  m_AnchoredPosition: {x: 0, y: -429.5}
+  m_SizeDelta: {x: 1500, y: 219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593104069
 MonoBehaviour:

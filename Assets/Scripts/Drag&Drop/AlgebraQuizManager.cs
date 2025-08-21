@@ -13,6 +13,7 @@ public class AlgebraQuizManager : MonoBehaviour
     public GameObject dropZonePrefab; //Prefab con un TMP_Text vacio donde va la incognita
     public Button[] optionButtons; //3 Botones de opciones
     public TMP_Text feedbackText; //Texto para feedback
+    public TMP_Text questionText; //Texto para mostrar la pregunta actual
 
     [Header("Configuración")]
     public List<AlgebraQuestions> allQuestions; //Lista total de preguntas en el inspector
@@ -58,8 +59,11 @@ public class AlgebraQuizManager : MonoBehaviour
 
         currentQuestion = quizQuestions[currentIndex];
 
+        //Mostrar pregunta
+        questionText.text = currentQuestion.questionText;
+
         //Construir expresión en pantalla 
-        for(int i = 0; i < currentQuestion.expressionParts.Length; i++)
+        for (int i = 0; i < currentQuestion.expressionParts.Length; i++)
         {
             if(i == currentQuestion.missingIndex)
             {

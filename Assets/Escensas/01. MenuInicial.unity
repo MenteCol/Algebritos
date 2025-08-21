@@ -4461,10 +4461,10 @@ MonoBehaviour:
   pistas:
   - nombre: Musica_Cancion1
     clip: {fileID: 8300000, guid: 934e24fc8e67f6e43bc1d5c12902897e, type: 3}
-    volumen: 20
+    volumen: 5
   - nombre: SFX_Tecla
     clip: {fileID: 8300000, guid: f4e4905469405ef438c6beea280f9e02, type: 3}
-    volumen: 80
+    volumen: 50
   - nombre: SFX_Win
     clip: {fileID: 8300000, guid: c4d177590bfb8144bb96e91d202e987b, type: 3}
     volumen: 80
