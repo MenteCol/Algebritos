@@ -90,6 +90,7 @@ public class QuestionManager : MonoBehaviour
         if(index == q.correctAnswerIndex)
         {
             score++;
+            EjecucionSonidos.Instance.ReproducirAudio("SFX_Win");
             Debug.Log("Respuesta correcta!");
         }
 
