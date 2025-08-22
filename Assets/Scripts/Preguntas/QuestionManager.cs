@@ -10,6 +10,7 @@ public class QuestionManager : MonoBehaviour
     public TMP_Text questionText;
     public TMP_Text[] optionTexts;
     public Button[] optionButtons;
+    public GameObject correctSprite;
 
     public int currentLevel; //1, 2, 3...
 
@@ -91,11 +92,11 @@ public class QuestionManager : MonoBehaviour
         {
             score++;
             EjecucionSonidos.Instance.ReproducirAudio("SFX_Win");
-            Debug.Log("Respuesta correcta!");
+            correctSprite.SetActive(true);
+            //Debug.Log("Respuesta correcta!");
         }
 
-        currentIndex++;
-        ShowQuestion();
+        Invoke(nameof(NextQuestion), 4f);
     }
 
     void EndGame()
@@ -118,6 +119,13 @@ public class QuestionManager : MonoBehaviour
 
         PlayerPrefs.Save();
         Invoke(nameof(ReturnToMainMenu), 3f); //Volver al menú principal después de 3 segundos
+    }
+
+    void NextQuestion()
+    {
+        currentIndex++;
+        ShowQuestion();
+        correctSprite.SetActive(false);
     }
 
     void ReturnToMainMenu()

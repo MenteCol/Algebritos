@@ -112,7 +112,7 @@ public class AlgebraQuizManager : MonoBehaviour
             }
         }
 
-        Invoke(nameof(NextQuestion), 5f);
+        Invoke(nameof(NextQuestion),3f);
     }
 
     void NextQuestion()
