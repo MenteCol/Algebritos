@@ -185,6 +185,7 @@ MonoBehaviour:
   - {fileID: 1527559881}
   - {fileID: 1765824694}
   - {fileID: 678874774}
+  correctSprite: {fileID: 1014771016}
   currentLevel: 2
 --- !u!114 &191814307
 MonoBehaviour:
@@ -611,7 +612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -201}
+  m_AnchoredPosition: {x: 350, y: -297}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &678874774
@@ -866,7 +867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5366, y: 310}
+  m_AnchoredPosition: {x: 1.5366, y: 214}
   m_SizeDelta: {x: 1000, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &904591446
@@ -919,9 +920,9 @@ MonoBehaviour:
   m_fontSize: 150
   m_fontSizeBase: 150
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 150
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1105,6 +1106,96 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1014771016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014771017}
+  - component: {fileID: 1014771019}
+  - component: {fileID: 1014771018}
+  - component: {fileID: 1014771020}
+  m_Layer: 5
+  m_Name: CorrectAnswer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1014771017
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014771016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1803952207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -189}
+  m_SizeDelta: {x: 700, y: 700}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1014771018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014771016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300048, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1014771019
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014771016}
+  m_CullTransparentMesh: 1
+--- !u!114 &1014771020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014771016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a53e0b00366bc840be7a58550c74a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 3
+  finalScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1167114895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 24}
+  m_AnchoredPosition: {x: 350, y: -72}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527559881
@@ -1445,7 +1536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: -201}
+  m_AnchoredPosition: {x: -350, y: -297}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1765824694
@@ -1626,6 +1717,7 @@ RectTransform:
   m_Children:
   - {fileID: 1943048008}
   - {fileID: 191814305}
+  - {fileID: 1014771017}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1645,77 +1737,101 @@ PrefabInstance:
       propertyPath: m_Name
       value: PrefabDialogos
       objectReference: {fileID: 0}
+    - target: {fileID: 1070910967072425660, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: panelJuego
       value: 
       objectReference: {fileID: 191814304}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.size
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[0].texto
-      value: "\xA1El \xE1lgebra puede parecer un rompecabezas complicado, pero es
-        como un juego de detectives matem\xE1ticos! "
+      value: "\xA1Segundo d\xEDa, nuevo desaf\xEDo! Hoy aprenderemos a desarmar expresiones
+        algebraicas como un detective que descompone pistas."
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[1].texto
-      value: "Primero, veamos qu\xE9 es el \xE1lgebra. Es un lenguaje secreto donde
-        las letras representan n\xFAmeros desconocidos. Por ejemplo, si tienes \U0001F34E
-        + 4 = 5, \xBFcu\xE1nto vale \U0001F34E? \xA1Exacto, 1! Porque 1 + 4 = 5."
+      value: "Empecemos con la FACTORIZACI\xD3N: que es dividir una expresi\xF3n
+        en partes m\xE1s peque\xF1as que, al multiplicarse, dan la original. Por
+        ejemplo, para x\xB2 + 5x + 6, buscamos dos n\xFAmeros que sumen 5 y multipliquen
+        6. \xA1Son 2 y 3! As\xED que se factoriza como (x + 2)(x + 3)."
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[2].texto
-      value: "\xA1Muy bien! El \xE1lgebra sirve para encontrar respuestas ocultas,
-        como pistas en un misterio. Ahora, hablemos de las expresiones algebraicas. "
+      value: "Ahora, el factor com\xFAn: el cual consiste en sacar el n\xFAmero o
+        letra que est\xE1 en todos los t\xE9rminos. Si tienes 6x + 9, el 3 est\xE1
+        en ambos. Sacamos el 3 y queda 3(2x + 3). \xA1Simple y elegante!"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[3].texto
-      value: "Son combinaciones de n\xFAmeros, letras y operaciones, como 10x + 6
-        = 36 o 7y - 4. Las letras son las inc\xF3gnitas que debemos descubrir."
+      value: "Si no todos los t\xE9rminos tienen un factor com\xFAn, usamos factorizaci\xF3n
+        por agrupaci\xF3n: en la cual se agrupan t\xE9rminos para encontrar factores
+        comunes.  "
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[4].texto
-      value: "Esa es una ecuaci\xF3n, porque tiene un signo de igual. Ahora, desglosemos
-        sus partes. La x es la variable, el valor que buscamos. El 4 es el coeficiente,
-        porque multiplica a la variable."
+      value: "Mira 4x + 6y + 2x + 3y. \r\n Agrupamos: (4x + 6y) + (2x + 3y).  \r\nSacamos
+        factor com\xFAn de cada grupo: 2(2x + 3y) + 1(2x + 3y).  \r\nLuego, factorizamos:
+        3(2x + 3y).\" \r"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[5].texto
-      value: "El 3 es la constante, un n\xFAmero fijo. Y los signos, como el + o
-        el =, son los operadores que indican qu\xE9 hacer: sumar, restar, multiplicar
-        o dividir."
+      value: 'La diferencia de cuadrados perfectos: se aplica cuando hay una resta
+        entre dos cuadrados que se factoriza como suma y resta. '
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[6].texto
-      value: "Por \xFAltimo, hablemos de los t\xE9rminos. Son las piezas de la expresi\xF3n
-        separadas por + o -. En 7x + 4, hay dos t\xE9rminos: 7x y 4. Si tienes 8y
-        + 9h - 5, hay tres. Y seg\xFAn cu\xE1ntos t\xE9rminos haya, se llaman monomio
-        (1), binomio (2), trinomio (3) o polinomio (4 o m\xE1s). \xA1F\xE1cil!, \xBFverdad?"
+      value: "Para 49x\xB2 - 81, reescribe como (7x)\xB2 - 9\xB2.  \r\nUsamos la
+        f\xF3rmula a\xB2 - b\xB2 = (a - b)(a + b), \ny queda (7x - 9)(7x + 9).\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[7].texto
-      value: "Hablemos de los t\xE9rminos. Son las piezas de la expresi\xF3n separadas
-        por + o -. En 7x + 4, hay dos t\xE9rminos: 7x y 4. Si tienes 8y + 9h - 5,
-        hay tres. Y seg\xFAn cu\xE1ntos t\xE9rminos haya, se llaman monomio (1),
-        binomio (2), trinomio (3) o polinomio (4 o m\xE1s). \xA1F\xE1cil!, \xBFverdad?"
+      value: 'Seguimos con el trinomio cuadrado perfecto: un trinomio que resulta
+        de elevar un binomio al cuadrado. '
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[8].texto
-      value: "Por \xFAltimo, el grado. En un monomio, como 5x\xB2, el grado es el
-        exponente de la variable: 2. En un polinomio, como x\xB2 + 5x + 3, el grado
-        es el mayor exponente: tambi\xE9n 2. El grado nos dice qu\xE9 tan 'grande'
-        es la expresi\xF3n."
+      value: "Si tienes (x + 3)\xB2, \r\nse puede escribir como (x + 3) (x + 3)\r\ny
+        si se multiplica se obtiene a x\xB2 + 6x + 9, lo cual ser\xEDa el trinomio
+        cuadrado perfecto.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[9].texto
-      value: "\xA1Listo! Est\xE1s preparado para resolver el primer misterio algebraico.
-        En la siguiente escena, pondremos a prueba tus habilidades con ecuaciones.
-        \xA1Adelante!"
+      value: "Luego, el trinomio de la forma x\xB2\u207F + bx\u207F + c: un trinomio
+        donde sustituimos la variable para simplificar.  "
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[0].nombre
       value: Narrador
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[10].texto
+      value: "Para x\u2074 + 5x\xB2 + 6, ponemos y = x\xB2, dando y\xB2 + 5y + 6. 
+        \r\nFactorizamos: (y + 2)(y + 3), y volvemos a x\xB2: (x\xB2 + 2)(x\xB2 +
+        3). \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[11].texto
+      value: "Por \xFAltimo, el trinomio de la forma ax\xB2\u207F + bx\u207F + c:
+        similar, pero con un coeficiente distinto de 1. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[12].texto
+      value: "Para 2x\u2074 + 7x\xB2 + 3, con y = x\xB2, queda 2y\xB2 + 7y + 3. 
+        \r\nBuscamos n\xFAmeros que multipliquen 2\xD73=6 y sumen 7: 6 y 1.  \r\nReescribimos,
+        agrupamos y factorizamos: (2y + 1)(y + 3), y volvemos a x\xB2: (2x\xB2 +
+        1)(x\xB2 + 3).\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[13].texto
+      value: "\xA1Gran trabajo! Est\xE1s un paso m\xE1s cerca del examen. Practica
+        estas t\xE9cnicas en el minijuego y consulta las pistas si necesitas ayuda.
+        \xA1Ma\xF1ana seguiremos!"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[1].nombre
@@ -1723,7 +1839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[2].nombre
-      value: Narrador
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[3].nombre
@@ -1735,11 +1851,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[5].nombre
-      value: Narrador
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[6].nombre
-      value: Narrador
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[7].nombre
@@ -1751,12 +1867,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[9].nombre
-      value: Narrador
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[0].retrato
       value: 
       objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[10].nombre
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[11].nombre
+      value: Narrador
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[12].nombre
+      value: Narrador
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[13].nombre
+      value: Narrador
+      objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[1].retrato
       value: 
@@ -1791,6 +1923,22 @@ PrefabInstance:
       objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[9].retrato
+      value: 
+      objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[10].retrato
+      value: 
+      objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[11].retrato
+      value: 
+      objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[12].retrato
+      value: 
+      objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[13].retrato
       value: 
       objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
     - target: {fileID: 8709850730987245007, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
@@ -1919,7 +2067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 24}
+  m_AnchoredPosition: {x: -350, y: -72}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982716070

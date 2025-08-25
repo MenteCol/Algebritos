@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &191814305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1739,7 +1739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1070910967072425660, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: panelJuego
@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 191814304}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.size
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[0].texto
@@ -1763,55 +1763,66 @@ PrefabInstance:
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[2].texto
       value: "\xA1Muy bien! El \xE1lgebra sirve para encontrar respuestas ocultas,
-        como pistas en un misterio. Ahora, hablemos de las expresiones algebraicas. "
+        como pistas en un misterio. "
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[3].texto
-      value: "Son combinaciones de n\xFAmeros, letras y operaciones, como 10x + 6
-        = 36 o 7y - 4. Las letras son las inc\xF3gnitas que debemos descubrir."
+      value: "Ahora, hablemos de las expresiones algebraicas. Son combinaciones de
+        n\xFAmeros, letras y operaciones, como \n10x + 6 o 7y - 4. Las letras son
+        las inc\xF3gnitas que debemos descubrir."
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[4].texto
-      value: "Esa es una ecuaci\xF3n, porque tiene un signo de igual. Ahora, desglosemos
-        sus partes. La x es la variable, el valor que buscamos. El 4 es el coeficiente,
-        porque multiplica a la variable."
+      value: "4x + 3 es una expresi\xF3n algebraica porque tiene todos los elementos
+        para ser una; pero cuales son estos, desglosemos cada una de sus partes"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[5].texto
-      value: "El 3 es la constante, un n\xFAmero fijo. Y los signos, como el + o
-        el =, son los operadores que indican qu\xE9 hacer: sumar, restar, multiplicar
-        o dividir."
+      value: "La x es la variable, el valor que buscamos. El 4 es el coeficiente,
+        porque multiplica a la variable. El 3 es la constante, un n\xFAmero fijo"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[6].texto
-      value: "Por \xFAltimo, hablemos de los t\xE9rminos. Son las piezas de la expresi\xF3n
-        separadas por + o -. En 7x + 4, hay dos t\xE9rminos: 7x y 4. Si tienes 8y
-        + 9h - 5, hay tres. Y seg\xFAn cu\xE1ntos t\xE9rminos haya, se llaman monomio
-        (1), binomio (2), trinomio (3) o polinomio (4 o m\xE1s). \xA1F\xE1cil!, \xBFverdad?"
+      value: "Y los signos, como el + o el =, son los operadores que indican qu\xE9
+        hacer: sumar, restar, multiplicar o dividir."
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[7].texto
-      value: "Hablemos de los t\xE9rminos. Son las piezas de la expresi\xF3n separadas
-        por + o -. En 7x + 4, hay dos t\xE9rminos: 7x y 4. Si tienes 8y + 9h - 5,
-        hay tres. Y seg\xFAn cu\xE1ntos t\xE9rminos haya, se llaman monomio (1),
-        binomio (2), trinomio (3) o polinomio (4 o m\xE1s). \xA1F\xE1cil!, \xBFverdad?"
+      value: "Si agregamos un = m\xE1s un resultado ya no tenemos una expresi\xF3n
+        algebraica si no una ecuaci\xF3n algebraica como podr\xEDa ser 4x+ 3 = 15"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[8].texto
-      value: "Por \xFAltimo, el grado. En un monomio, como 5x\xB2, el grado es el
-        exponente de la variable: 2. En un polinomio, como x\xB2 + 5x + 3, el grado
-        es el mayor exponente: tambi\xE9n 2. El grado nos dice qu\xE9 tan 'grande'
-        es la expresi\xF3n."
+      value: "Hablemos ahora de los t\xE9rminos los cuales son las piezas de la expresi\xF3n
+        separadas por + o -. En 7x + 4, hay dos t\xE9rminos: 7x y 4. Si tienes 8y
+        + 9h - 5, hay tres(3)"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[9].texto
-      value: "\xA1Listo! Est\xE1s preparado para resolver el primer misterio algebraico.
-        En la siguiente escena, pondremos a prueba tus habilidades con ecuaciones.
-        \xA1Adelante!"
+      value: "Y seg\xFAn cu\xE1ntos t\xE9rminos haya, se llaman monomio (1), binomio
+        (2), trinomio (3) o polinomio (4 o m\xE1s). \xA1F\xE1cil!, \xBFverdad?"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[0].nombre
       value: Narrador
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[10].texto
+      value: "Por \xFAltimo, el grado. En un monomio, como 5x\xB2, el grado es el
+        exponente de la variable: 2. En un polinomio, como x\xB2 + 5x + 3, el grado
+        es el mayor exponente: tambi\xE9n 2. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[11].texto
+      value: "Por otro lado, si tenemos una expresi\xF3n como 2x\xB2y\xB2 + 4xy\xB2
+        + x nuestro grado ser\xE1 4 pues los exponentes se suman en el t\xE9rmino
+        cuya sumatoria de exponentes sea mayor."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[12].texto
+      value: "\xA1Listo! Est\xE1s preparado para resolver el primer misterio algebraico.
+        En la siguiente escena, pondremos a prueba tus habilidades con ecuaciones.
+        \xA1Adelante!"
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[1].nombre
@@ -1819,11 +1830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[2].nombre
-      value: Narrador
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[3].nombre
-      value: Narrador
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[4].nombre
@@ -1839,7 +1850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[7].nombre
-      value: Narrador
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[8].nombre
@@ -1853,6 +1864,14 @@ PrefabInstance:
       propertyPath: fragmentosDialogo.Array.data[0].retrato
       value: 
       objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[10].nombre
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[12].nombre
+      value: Narrador
+      objectReference: {fileID: 0}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[1].retrato
       value: 
@@ -1887,6 +1906,18 @@ PrefabInstance:
       objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
     - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
       propertyPath: fragmentosDialogo.Array.data[9].retrato
+      value: 
+      objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[10].retrato
+      value: 
+      objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[11].retrato
+      value: 
+      objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
+    - target: {fileID: 4101614106454541893, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
+      propertyPath: fragmentosDialogo.Array.data[12].retrato
       value: 
       objectReference: {fileID: 6078624563752211422, guid: 37459365257258a44967fa38bf547db5, type: 3}
     - target: {fileID: 8709850730987245007, guid: fe726cf8b1e14bf419093888e130f747, type: 3}
