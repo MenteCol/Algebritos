@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escensas/Drag&Drop 3.unity
     guid: de707ca6eae83a14ba7bdd8a7c8338aa
+  - enabled: 1
+    path: Assets/Escensas/Examen.unity
+    guid: fecf64efe79277b438f8e479d6b8086c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
