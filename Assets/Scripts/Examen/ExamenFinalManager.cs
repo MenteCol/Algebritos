@@ -98,7 +98,7 @@ public class ExamenFinalManager : MonoBehaviour
 
     void EndGame()
     {
-        questionText.text = "Juego terminado. Tu puntuación es: " + score + "/5";
+        questionText.text = "Juego terminado. Tu puntuación es: " + score + "/10";
 
         foreach (var btn in optionButtons)
         {
